@@ -250,7 +250,7 @@ const Render = {
 
     grid.innerHTML = this.data.siswa
       .map((s, i) => {
-        const foto = s.foto || STUDENT_PHOTOS[i % STUDENT_PHOTOS.length];
+        const foto = s.foto || "assets/foto-baru.jfif";
         
         const jabatan = s.jabatan
           ? `<span class="badge-jabatan">${s.jabatan}</span>`
@@ -284,7 +284,7 @@ const Render = {
       return;
     }
 
-    const foto = s.foto || STUDENT_PHOTOS[idx % STUDENT_PHOTOS.length];
+    const foto = s.foto || "assets/foto-baru.jfif";
     const status = s.status || "hadir";
     const statusLabel = status === "hadir" ? "Hadir" : status === "izin" ? "Izin" : "Sakit";
     const badgeClass = status === "hadir" ? "badge-hadir" : status === "izin" ? "badge-izin" : "badge-sakit";

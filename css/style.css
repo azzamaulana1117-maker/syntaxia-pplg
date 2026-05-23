@@ -573,6 +573,14 @@ body.is-admin .admin-only { display: inline-flex !important; }
   }
 }
 
+.page-view[data-page="org"] .section-head {
+  justify-content: center;
+}
+.page-view[data-page="org"] .section-head .btn-sm,
+.page-view[data-page="org"] .section-head .btn-link {
+  margin-left: 0;
+}
+
 /* Jadwal */
 .jadwal-tabs {
   display: flex;
