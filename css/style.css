@@ -1610,3 +1610,187 @@ body.is-admin .piket-btn:not(:disabled) { cursor: pointer; }
   cursor: pointer;
   font-size: 24px;
 }
+
+/* ===== ABSENSI ===== */
+
+.absensi-wrapper{
+  width:100%;
+  overflow-x:auto;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+}
+
+.absensi-table{
+  border-collapse:collapse;
+  width:100%;
+  min-width:2200px;
+  table-layout:fixed;
+  font-size:12px;
+  color:#111827;
+}
+
+.absensi-table th,
+.absensi-table td{
+  border:1px solid #94a3b8;
+  text-align:center;
+  padding:5px;
+}
+
+.title-head{
+  background:#f8fafc;
+  font-size:24px;
+  font-weight:700;
+  color:#111827;
+  padding:18px !important;
+}
+
+.bulan-text{
+  margin-top:5px;
+  color:#2563eb;
+  font-size:14px;
+  font-weight:600;
+}
+
+.no-col{
+  width:50px;
+  min-width:50px;
+  background:#dbeafe;
+  font-weight:700;
+}
+
+.nama-col{
+  width:280px;
+  min-width:280px;
+  text-align:left !important;
+  padding-left:12px !important;
+  background:#bfdbfe;
+  font-weight:700;
+}
+
+.tanggal-group{
+  background:#2563eb;
+  color:white;
+  font-weight:700;
+}
+
+.rekap-group{
+  background:#1e293b;
+  color:white;
+}
+
+.tgl-head{
+  width:40px;
+  min-width:40px;
+  background:#60a5fa;
+  color:white;
+}
+
+.absen-cell{
+  width:40px;
+  min-width:40px;
+  height:34px;
+  background:white;
+  font-weight:700;
+}
+
+.absen-cell:hover{
+  background:#dbeafe;
+}
+
+.rekap-col{
+  width:45px;
+  min-width:45px;
+  background:#f1f5f9;
+  font-weight:700;
+}
+
+.editable-cell{
+  cursor:text;
+}
+
+.editable-cell:focus{
+  outline:none;
+  background:#fef08a;
+}
+
+.keterangan-absensi{
+  margin-top:20px;
+  color:#111827;
+  font-size:14px;
+}
+.absensi-wrapper{
+  width:100%;
+  overflow-x:auto;
+  padding:10px;
+}
+
+.absensi-table{
+  border-collapse:collapse;
+  width:max-content;
+  min-width:100%;
+  background:white;
+}
+
+.absensi-table th,
+.absensi-table td{
+  border:1px solid #000;
+  text-align:center;
+  padding:6px;
+  font-size:14px;
+}
+
+.title-head{
+  font-size:20px;
+  font-weight:700;
+  padding:16px;
+  background:#f3f4f6;
+}
+
+.bulan-text{
+  margin-top:6px;
+  font-size:14px;
+  font-weight:500;
+}
+
+.no-col{
+  min-width:60px;
+}
+
+.nama-col{
+  min-width:260px;
+  text-align:left !important;
+  padding-left:12px !important;
+  font-weight:600;
+}
+
+.tgl-head{
+  min-width:42px;
+}
+
+.rekap-col{
+  min-width:45px;
+  font-weight:700;
+}
+
+.absen-cell{
+  cursor:pointer;
+  transition:.2s;
+  font-weight:700;
+}
+
+.absen-cell:hover{
+  background:#dbeafe;
+}
+
+@media (min-width:1200px){
+
+  .absensi-wrapper{
+    width:100%;
+  }
+
+  .absensi-table{
+    width:100%;
+  }
+
+}

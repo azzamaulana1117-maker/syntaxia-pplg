@@ -355,103 +355,161 @@ const Render = {
     });
   },
 
-  absensi() {
-    const grid = document.getElementById("absensi-grid");
-    if (!grid) return;
+absensi() {
+  const grid = document.getElementById("absensi-grid");
+  if (!grid) return;
 
-    // If there is imported attendance data, render it as a table with dates as columns.
-    const absensi = this.data.absensi || {};
-    const dates = Object.keys(absensi).sort();
-    if (dates.length === 0) {
-      // No attendance imported yet — show a prompt to import via Admin
-      grid.innerHTML = `
-        <div class="card-base">
-          <h3>Tidak ada data absensi</h3>
-          <p class="text-muted">Belum ada data absensi yang diimpor. Gunakan menu <strong>Admin → Imor Absensi</strong> untuk mengunggah file Excel (.xlsx/.xls/.csv).</p>
-        </div>`;
-      return;
+  const siswa = this.data.siswa || [];
+  const isAdmin = Auth.isAdmin();
+
+  const bulan = "JULI";
+  const tahun = "2026";
+
+  let headerTanggal = "";
+  for (let i = 1; i <= 31; i++) {
+    headerTanggal += `<th class="tgl-head">${i}</th>`;
+  }
+
+  const statusList = ["H", "S", "I", "A", ""];
+
+  let rows = siswa.map((s, index) => {
+
+    let cells = "";
+    let totalH = 0;
+    let totalS = 0;
+    let totalI = 0;
+    let totalA = 0;
+
+    for (let i = 1; i <= 31; i++) {
+
+      const key = `tgl_${i}`;
+
+      if (!s.absensi) s.absensi = {};
+
+      const status = s.absensi[key] || "";
+
+      if (status === "H") totalH++;
+      if (status === "S") totalS++;
+      if (status === "I") totalI++;
+      if (status === "A") totalA++;
+
+      cells += `
+        <td 
+          class="absen-cell editable-cell"
+          data-siswa="${index}"
+          data-tanggal="${i}"
+        >
+          ${status}
+        </td>
+      `;
     }
 
-    const isAdmin = document.body.classList.contains('is-admin');
+    return `
+      <tr>
+        <td class="no-col">${s.noAbsen ?? index + 1}</td>
 
-    const monthDates = dates
-      .map((d) => {
-        const dt = new Date(d);
-        return Number.isNaN(dt.getTime()) ? null : dt;
-      })
-      .filter(Boolean);
-    const monthDate = monthDates[0] || new Date();
-    const month = monthDate.getMonth();
-    const year = monthDate.getFullYear();
-    const monthName = [
-      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-    ][month];
-    const inSameMonth = monthDates.length > 0 && monthDates.every((dt) => dt.getMonth() === month && dt.getFullYear() === year);
-    const displayDates = inSameMonth
-      ? Array.from({ length: new Date(Date.UTC(year, month + 1, 0)).getUTCDate() }, (_, idx) => {
-          const d = new Date(Date.UTC(year, month, idx + 1));
-          return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`;
-        })
-      : dates;
+        <td class="nama-col">
+          ${s.nama}
+        </td>
 
-    const headers = ['No', 'Nama Lengkap', ...displayDates.map((d) => {
-      const parts = String(d).split('-');
-      return parts.length === 3 ? String(Number(parts[2])) : d;
-    }), 'H', 'S', 'I', 'A'];
+        ${cells}
 
-    const rows = this.data.siswa.map((s, i) => {
-      const nis = s.nis || `idx-${i}`;
-      const no = s.noAbsen ?? i + 1;
-      let hadir = 0;
-      let sakit = 0;
-      let izin = 0;
-      let alpha = 0;
+        <td class="rekap-col">${totalH}</td>
+        <td class="rekap-col">${totalS}</td>
+        <td class="rekap-col">${totalI}</td>
+        <td class="rekap-col">${totalA}</td>
+      </tr>
+    `;
+  }).join("");
 
-      const cells = displayDates
-        .map((d) => {
-          const status = (absensi[d] && absensi[d][nis]) || '';
-          const normalized = status.toLowerCase();
-          const label = normalized === 'hadir' ? 'H' : normalized === 'izin' ? 'I' : normalized === 'sakit' ? 'S' : normalized === 'alpha' ? 'A' : '';
-          if (normalized === 'hadir') hadir += 1;
-          else if (normalized === 'sakit') sakit += 1;
-          else if (normalized === 'izin') izin += 1;
-          else if (normalized === 'alpha') alpha += 1;
-          const cls = label ? `att-${label.toLowerCase()}` : 'att-empty';
-          const attr = isAdmin ? ` data-nis="${nis}" data-date="${d}" tabindex="0"` : '';
-          return `<td class="attendance-cell ${cls}"${attr}>${this.esc(label)}</td>`;
-        })
-        .join('');
+  grid.innerHTML = `
+    <div class="absensi-wrapper">
 
-      return `
-        <tr>
-          <td>${no}</td>
-          <td class="attendance-name-cell">${this.esc(s.nama)}</td>
-          ${cells}
-          <td class="att-hadir">${hadir || ''}</td>
-          <td class="att-sakit">${sakit || ''}</td>
-          <td class="att-izin">${izin || ''}</td>
-          <td class="att-alpha">${alpha || ''}</td>
-        </tr>`;
+      <table class="absensi-table">
+        <thead>
+
+          <tr>
+            <th colspan="37" class="title-head">
+              DAFTAR HADIR SISWA KELAS XI PPLG
+
+              <div class="bulan-text">
+                BULAN: ${bulan} ${tahun}
+              </div>
+            </th>
+          </tr>
+
+          <tr>
+            <th rowspan="2" class="no-col">No</th>
+            <th rowspan="2" class="nama-col">Nama Lengkap</th>
+
+            <th colspan="31">
+              Tanggal
+            </th>
+
+            <th colspan="4">
+              Rekap
+            </th>
+          </tr>
+
+          <tr>
+            ${headerTanggal}
+
+            <th class="rekap-col">H</th>
+            <th class="rekap-col">S</th>
+            <th class="rekap-col">I</th>
+            <th class="rekap-col">A</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+
+    </div>
+  `;
+
+  if (isAdmin) {
+
+    document.querySelectorAll(".editable-cell").forEach((cell) => {
+
+      cell.addEventListener("click", () => {
+
+        const siswaIndex = Number(cell.dataset.siswa);
+        const tanggal = Number(cell.dataset.tanggal);
+
+        const siswa = this.data.siswa[siswaIndex];
+
+        if (!siswa.absensi) siswa.absensi = {};
+
+        const key = `tgl_${tanggal}`;
+
+        const current = siswa.absensi[key] || "";
+
+        const currentIndex = statusList.indexOf(current);
+
+        const nextStatus =
+          statusList[(currentIndex + 1) % statusList.length];
+
+        siswa.absensi[key] = nextStatus;
+
+        Store.saveData(this.data);
+
+        const scrollX = grid.querySelector(".absensi-wrapper").scrollLeft;
+
+this.absensi();
+
+requestAnimationFrame(() => {
+  const wrapper = grid.querySelector(".absensi-wrapper");
+  if(wrapper){
+    wrapper.scrollLeft = scrollX;
+  }
+});
+      });
     });
-
-    grid.innerHTML = `
-      <div class="attendance-sheet-header">
-        <h3>Daftar Hadir Siswa</h3>
-        <p>BULAN: ${this.esc(monthName.toUpperCase())} ${year}</p>
-      </div>
-      <div class="attendance-table-wrap">
-        <table class="attendance-table attendance-sheet">
-          <thead>
-            <tr>${headers.map((h) => `<th>${this.esc(h)}</th>`).join('')}</tr>
-          </thead>
-          <tbody>
-            ${rows.join('')}
-          </tbody>
-        </table>
-        ${isAdmin ? '<p class="admin-hint">Klik sel untuk mengganti status (H/I/S/A/kosong).</p>' : ''}
-      </div>`;
-  },
+  }
+},
 
   attendanceModal() {
     const body = document.getElementById('attendance-modal-body');
