@@ -2,7 +2,7 @@ const STORAGE_KEY = "syntaxia_class_data";
 const SESSION_KEY = "syntaxia_session";
 const THEME_KEY = "syntaxia_theme";
 
-const Store = {
+window.Store = {
   getData() {
     let data;
     try {
