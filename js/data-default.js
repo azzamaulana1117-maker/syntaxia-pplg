@@ -1,12 +1,12 @@
 const STUDENT_PHOTOS = [
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif",
-  "assets/default-student-photo.jfif"
+  "assets/default.jpg",
+  "assets/default.jpg",
+  "assets/default.jpg",
+  "assets/default.jpg",
+  "assets/default.jpg",
+  "assets/default.jpg",
+  "assets/default.jpg",
+  "assets/default.jpg"
 ];
 
 const DEFAULT_DATA = {
