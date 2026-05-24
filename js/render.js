@@ -148,6 +148,29 @@ const Render = {
   piket(hariOverride) {
     const tabs = document.getElementById("piket-day-tabs");
     const list = document.getElementById("piket-list");
+    const titleArea = document.querySelector("#page-piket .section-title-wrap");
+
+if(titleArea && !document.getElementById("piket-edit-center")){
+
+  const btn = document.createElement("button");
+
+  btn.id = "piket-edit-center";
+  btn.innerText = "Edit";
+
+  btn.style.marginTop = "14px";
+  btn.style.display = "block";
+  btn.style.marginLeft = "auto";
+  btn.style.marginRight = "auto";
+  btn.style.padding = "10px 26px";
+  btn.style.border = "none";
+  btn.style.borderRadius = "999px";
+  btn.style.background = "#3b82f6";
+  btn.style.color = "white";
+  btn.style.fontWeight = "600";
+  btn.style.cursor = "pointer";
+
+  titleArea.appendChild(btn);
+}
     if (!tabs || !list) return;
 
     const hariList = HARI_PIKET.filter((h) => this.data.jadwalPiket[h]);
@@ -423,9 +446,9 @@ absensi() {
   }).join("");
 
   grid.innerHTML = `
-    <div class="absensi-wrapper">
+    <div class="absensi-wrapper" style="width:100%; overflow-x:auto;">
 
-      <table class="absensi-table">
+      <table class="absensi-table" style="width:100%; min-width:2200px;">
         <thead>
 
           <tr>

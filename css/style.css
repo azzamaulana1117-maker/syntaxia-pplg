@@ -1794,3 +1794,384 @@ body.is-admin .piket-btn:not(:disabled) { cursor: pointer; }
   }
 
 }
+/* =========================
+   JADWAL PIKET TENGAH
+========================= */
+
+.jadwal-header-center{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.jadwal-title-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.jadwal-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#3b82f6;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    color:white;
+    box-shadow:0 10px 30px rgba(59,130,246,.35);
+}
+
+.jadwal-title-wrap h2{
+    font-size:42px;
+    font-weight:800;
+    color:white;
+    margin:0;
+}
+
+.jadwal-title-wrap p{
+    font-size:18px;
+    color:#94a3b8;
+    margin:0;
+}
+
+.edit-btn{
+    margin-top:12px;
+    background:#3b82f6;
+    color:white;
+    border:none;
+    padding:14px 38px;
+    border-radius:999px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.edit-btn:hover{
+    transform:translateY(-2px);
+    background:#2563eb;
+}
+
+#page-piket .section-title-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+#page-piket .section-title-wrap h2{
+    width:100%;
+}
+
+#page-piket .section-title-wrap p{
+    width:100%;
+}
+#page-piket .section-head{
+    justify-content:center;
+    text-align:center;
+}
+/* ===== SEMUA TITLE MENU KE TENGAH ===== */
+
+.section-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  gap:10px;
+  padding-top:20px;
+}
+
+/* tombol edit di bawah judul */
+.section-head .admin-only{
+  position:static !important;
+  margin-top:10px;
+}
+
+/* icon */
+.section-icon{
+  margin:0 auto;
+}
+
+/* tab menu */
+.piket-day-tabs,
+#jadwal-tabs,
+#ranking-tabs{
+  justify-content:center;
+}
+/* ===== SEMUA TOMBOL EDIT KE TENGAH ===== */
+
+.section-head{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:12px;
+}
+
+/* tombol edit */
+.section-head .admin-only{
+  position:static !important;
+  margin:0 auto !important;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* icon tengah */
+.section-icon{
+  margin:0 auto;
+}
+
+/* teks tengah */
+.section-head h3,
+.section-head p{
+  text-align:center;
+}
+/* kecilkan tombol hari piket */
+
+.piket-day-tab{
+  padding:10px 22px !important;
+  font-size:14px !important;
+  border-radius:14px !important;
+  min-width:140px;
+}
+/* kecilkan tabel jadwal piket */
+
+#page-piket{
+  max-width:1100px;
+  margin:auto;
+}
+
+.piket-list{
+  font-size:14px;
+}
+
+.piket-row{
+  padding:12px 18px !important;
+  min-height:auto !important;
+}
+
+.piket-row-name{
+  font-size:14px !important;
+}
+
+.piket-btn{
+  width:36px !important;
+  height:36px !important;
+  font-size:18px !important;
+}
+
+.piket-day-tab{
+  padding:8px 18px !important;
+  min-width:120px !important;
+  font-size:13px !important;
+}
+/* beri jarak tombol hari dari pinggir tabel */
+
+.piket-day-tabs{
+  padding:16px 20px 10px 20px !important;
+}
+
+/* tombol hari */
+.piket-day-tab{
+  margin:0 6px !important;
+}
+/* kecilkan ranking */
+
+#page-ranking{
+  max-width:1100px;
+  margin:auto;
+}
+
+/* item ranking */
+.ranking-item{
+  padding:14px 18px !important;
+  min-height:auto !important;
+  border-radius:18px !important;
+}
+
+/* nama siswa
+/* profil kelas */
+
+.profil-kelas-box{
+  margin-top:30px;
+  padding:24px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  text-align:center;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.profil-kelas-box h3{
+  font-size:28px;
+  margin-bottom:18px;
+  color:#ffffff;
+  font-weight:700;
+}
+
+.profil-kelas-box p{
+  color:#cbd5e1;
+  line-height:1.9;
+  font-size:16px;
+  margin-bottom:14px;
+}
+/* profil kelas ke tengah */
+
+.profil-kelas-box{
+  width:90%;
+  max-width:1250px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  margin:40px auto 0 auto !important;
+}
+/* total siswa bawah galeri */
+
+.hero-stats,
+.stats-grid{
+    position:static !important;
+    margin-top:30px !important;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+/* hero beranda ke tengah */
+
+.hero-section,
+.hero-content,
+.hero-left{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    margin:auto;
+}
+
+/* tulisan */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section p{
+    text-align:center;
+}
+
+/* kotak wali kelas */
+.hero-card,
+.wali-kelas-box{
+    margin:24px auto;
+}
+
+/* portal resmi */
+.hero-description{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+}
+/* logo pindah ke atas tulisan selamat pagi */
+
+.hero-top{
+  display:flex;
+  flex-direction:column-reverse;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+}
+
+/* logo */
+.hero-logos,
+.header-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin-bottom:10px;
+}
+
+/* tulisan */
+.hero-greeting{
+  text-align:center;
+}
+/* logo di atas tulisan */
+
+.hero-top-logos{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+}
+/* kecilkan tabel jadwal */
+
+#page-jadwal{
+  max-width:1100px;
+  margin:auto;
+}
+
+/* tab hari */
+.jadwal-tabs{
+  justify-content:center;
+  padding:18px 20px !important;
+  gap:10px;
+}
+
+/* tombol hari */
+.jadwal-tab{
+  padding:8px 18px !important;
+  font-size:13px !important;
+  border-radius:14px !important;
+  min-width:120px !important;
+}
+
+/* kotak jadwal */
+.schedule-slot{
+  padding:12px 18px !important;
+  border-radius:16px !important;
+  font-size:14px !important;
+  margin-bottom:10px;
+}
+
+/* jam pelajaran */
+.schedule-time{
+  font-size:13px !important;
+}
+/* kecilkan halaman siswa seperti tabel piket */
+
+#page-students{
+  max-width:1100px;
+  margin:auto;
+}
+
+/* grid siswa */
+#students-grid{
+  width:100%;
+  margin-top:20px;
+}
+
+/* kartu siswa */
+.student-card{
+  max-width:100%;
+  border-radius:18px !important;
+}
+
+/* isi kartu */
+.student-inner{
+  padding:14px 18px !important;
+}

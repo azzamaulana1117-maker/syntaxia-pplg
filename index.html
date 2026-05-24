@@ -95,15 +95,17 @@
       <div class="container-dashboard">
         <!-- Beranda -->
         <div class="page-view active" data-page="beranda" id="page-beranda">
-        <section class="section-hero gradient-hero card-base">
-          <div class="hero-top-logos">
-                <img src="assets/logo-pplg.png" alt="Logo PPLG" class="hero-logo">
-                <img src="assets/logo-assa.png" alt="Logo Assa" class="hero-logo">
-              </div>
+        <section class="section-hero gradient-hero card-base">          
           <div class="hero-blob hero-blob-orange"></div>
           <div class="hero-blob hero-blob-purple"></div>
           <div class="hero-inner">
             <div class="hero-content">
+
+              <div class="hero-top-logos">
+                <img src="assets/logo-pplg.png" alt="Logo PPLG" class="hero-logo">
+                <img src="assets/logo-assa.png" alt="Logo Assa" class="hero-logo">
+              </div>
+              
               <div class="hero-date-badge">
                 <span id="hero-greeting">Selamat Datang</span>
                 <span class="hero-date-sep">·</span>
@@ -116,7 +118,24 @@
                 <span class="label-xs">Wali Kelas</span>
                 <p class="wali-name" id="wali-kelas-display">Bp. Muhammad Assola, S.Pd.</p>
               </div>
-              <p class="hero-desc">Portal resmi kelas kita. Cek jadwal piket, lihat galeri foto, dan data siswa SYNTAXIA CLASS!</p>
+              <p class="hero-desc">Official website SYNTAXIA CLASS. Cek informasi tentang kelas SYNTAXIA CLASS!</p>
+              <div class="profil-kelas-box">
+                <h3>Profil Kelas X PPLG - SMK Assa'idiyah Kudus</h3>
+              
+                <p>
+                  Kelas X PPLG merupakan wadah bagi para siswa kreatif yang siap bersaing
+                  di industri digital. Di bawah naungan SMK Assa'idiyah Kudus, kami ditempa
+                  untuk menguasai dasar-dasar pemrograman, pengembangan perangkat lunak,
+                  hingga pembuatan gim, tanpa melupakan nilai-nilai karakter yang religius
+                  dan disiplin.
+                </p>
+              
+                <p>
+                  Kami percaya bahwa teknologi terbaik diciptakan oleh tangan-tangan yang
+                  tidak hanya cerdas secara intelektual, tetapi juga santun dalam beretika.
+                  Bersama, kami siap mengode masa depan yang lebih cerah!
+                </p>
+              </div>
               <div class="hero-actions">
                 <button type="button" class="btn-primary" data-page="gallery">Galeri Kelas</button>
                 <button type="button" class="btn-secondary" data-page="students">Data Siswa</button>
@@ -173,11 +192,26 @@
         <section class="page-view section-block card-base" data-page="piket" id="page-piket" hidden>
               <div class="section-head compact">
                 <div class="section-icon bg-primary">📋</div>
-                <div>
+                <div style="width:100%; text-align:center;">
+
                   <h3>Jadwal Piket</h3>
-                  <p class="section-sub">Petugas kebersihan kelas</p>
+                
+                  <p class="section-sub">
+                    Petugas kebersihan kelas
+                  </p>
+                
+                  <button 
+                    type="button" 
+                    class="btn-sm btn-primary admin-only" 
+                    data-edit="piket"
+                    style="
+                      margin-top:14px;
+                    "
+                  >
+                    Edit
+                  </button>
+                
                 </div>
-                <button type="button" class="btn-sm btn-primary admin-only" data-edit="piket">Edit</button>
               </div>
               <div class="piket-day-tabs" id="piket-day-tabs"></div>
               <div class="piket-list" id="piket-list"></div>

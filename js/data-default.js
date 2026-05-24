@@ -93,51 +93,61 @@ const DEFAULT_DATA = {
   },
   jadwalPelajaran: {
     Senin: [
-      { jam: "07:00–07:45", mapel: "Pendidikan Agama Islam" },
-      { jam: "07:45–08:30", mapel: "Pendidikan Pancasila" },
-      { jam: "08:30–09:15", mapel: "Bahasa Indonesia" },
-      { jam: "09:30–10:15", mapel: "Matematika" },
-      { jam: "10:15–11:00", mapel: "Dasar Program Keahlian (DPK)" },
-      { jam: "11:30–12:15", mapel: "Pemrograman Dasar" },
-      { jam: "12:15–13:00", mapel: "Praktik Pemrograman Dasar" }
+      { jam: "07:00–07:45", mapel: "PENJAS" },
+      { jam: "07:45–08:30", mapel: "PENJAS" },
+      { jam: "08:30–09:15", mapel: "Dasar PPLG" },
+      { jam: "09:30–10:00", mapel: "Matematika" },
+      { jam: "10:30–11:15", mapel: "Matematika" },
+      { jam: "11:15–12:00", mapel: "PEND AGAMA" },
+      { jam: "12:30–13:15", mapel: "PEND AGAMA" },
+      { jam: "13:15–14:00", mapel: "PEND AGAMA" }
     ],
     Selasa: [
-      { jam: "07:00–07:45", mapel: "Bahasa Inggris" },
-      { jam: "07:45–08:30", mapel: "Sejarah Indonesia" },
-      { jam: "08:30–09:15", mapel: "Informatika" },
-      { jam: "09:30–10:15", mapel: "Seni Budaya" },
-      { jam: "10:15–11:00", mapel: "Desain & Produksi Kreatif (DDPK)" },
-      { jam: "11:30–13:00", mapel: "Praktik DDPK / Desain Grafis" }
+      { jam: "07:00–07:45", mapel: "CHARACTER BUILDING" },
+      { jam: "07:45–08:30", mapel: "PENDIDIKAN PANCASILA" },
+      { jam: "08:30–09:15", mapel: "PENDIDIKAN PANCASILA" },
+      { jam: "09:30–10:00", mapel: "DASAR PPLG" },
+      { jam: "10:30–11:15", mapel: "DASAR PPLG" },
+      { jam: "11:15–12:00", mapel: "DASAR PPLG" },
+      { jam: "12:30–13:15", mapel: "DASAR PPLG" },
+      { jam: "13:15–14:00", mapel: "DASAR PPLG" }
     ],
     Rabu: [
-      { jam: "07:00–07:45", mapel: "Matematika" },
-      { jam: "07:45–08:30", mapel: "Bahasa Indonesia" },
-      { jam: "08:30–09:15", mapel: "Pemrograman Web Dasar" },
-      { jam: "09:30–10:15", mapel: "Sistem Komputer" },
-      { jam: "10:15–11:00", mapel: "Projek P5 (Profil Pelajar Pancasila)" },
-      { jam: "11:30–13:00", mapel: "Praktik Pemrograman Web" }
+      { jam: "07:00–07:45", mapel: "SEJARAH" },
+      { jam: "07:45–08:30", mapel: "BAHASA INGGRIS" },
+      { jam: "08:30–09:15", mapel: "INFORMATIKA" },
+      { jam: "09:30–10:00", mapel: "INFORMATIKA" },
+      { jam: "10:30–11:15", mapel: "BAHASA JAWA" },
+      { jam: "11:15–12:00", mapel: "BAHASA JAWA" },
+      { jam: "12:30–13:15", mapel: "SENI RUPA" },
+      { jam: "13:15–14:00", mapel: "SENI RUPA" }
     ],
     Kamis: [
-      { jam: "07:00–07:45", mapel: "Bahasa Inggris" },
-      { jam: "07:45–08:30", mapel: "Fisika / IPAS" },
-      { jam: "08:30–09:15", mapel: "Jaringan Dasar" },
-      { jam: "09:30–10:15", mapel: "Pemrograman Berorientasi Objek" },
-      { jam: "10:15–11:00", mapel: "Basis Data Dasar" },
-      { jam: "11:30–13:00", mapel: "Praktik Jaringan & Basis Data" }
+      { jam: "07:00–07:45", mapel: "BAHASA INGGRIS" },
+      { jam: "07:45–08:30", mapel: "BAHASA INGGRIS" },
+      { jam: "08:30–09:15", mapel: "BAHASA INGGRIS" },
+      { jam: "09:30–10:00", mapel: "SEJARAH" },
+      { jam: "10:30–11:15", mapel: "INFORMATIKA" },
+      { jam: "11:15–12:00", mapel: "INFORMATIKA" },
+      { jam: "12:30–13:15", mapel: "MATEMATIKA" },
+      { jam: "13:15–14:00", mapel: "MATEMATIKA" }
     ],
     Jumat: [
-      { jam: "07:00–07:45", mapel: "Pendidikan Agama Islam" },
-      { jam: "07:45–08:30", mapel: "Pendidikan Jasmani, Olahraga & Kesehatan" },
-      { jam: "08:30–09:15", mapel: "Kewirausahaan" },
-      { jam: "09:30–10:15", mapel: "Matematika" },
-      { jam: "10:15–11:00", mapel: "Bimbingan Karir / Literasi Digital" },
-      { jam: "11:30–12:15", mapel: "Projek Kelas Syntaxia" }
+      { jam: "07:00–07:45", mapel: "IPAS FISIKA" },
+      { jam: "07:45–08:30", mapel: "IPAS FISIKA" },
+      { jam: "08:30–09:15", mapel: "ASWAJA" },
+      { jam: "09:30–10:00", mapel: "BAHASA INDONESIA" },
+      { jam: "10:30–11:15", mapel: "BAHASA INDONESIA" },
     ],
     Sabtu: [
-      { jam: "07:00–08:30", mapel: "Praktik Produktif RPL (Lab)" },
-      { jam: "08:30–10:00", mapel: "Praktik Pemrograman & Basis Data" },
-      { jam: "10:15–11:45", mapel: "Pengembangan Produk (Projek Kelas)" },
-      { jam: "11:45–12:30", mapel: "Evaluasi / Presentasi Projek" }
+      { jam: "07:00–07:45", mapel: "DASAR PPLG" },
+      { jam: "07:45–08:30", mapel: "DASAR PPLG" },
+      { jam: "08:30–09:15", mapel: "BAHASA INDONESIA" },
+      { jam: "09:30–10:00", mapel: "BAHASA INDONESIA" },
+      { jam: "10:30–11:15", mapel: "IPAS IPS" },
+      { jam: "11:15–12:00", mapel: "IPAS IPS" },
+      { jam: "12:30–13:15", mapel: "IPAS KIMIA" },
+      { jam: "13:15–14:00", mapel: "IPAS KIMIA" }
     ]
   },
   jadwalPiket: {
