@@ -2244,8 +2244,47 @@ body.is-admin .piket-btn:not(:disabled) { cursor: pointer; }
 .light-mode .about-section h3 {
   color: #111111 !important;
 }
-/* PAKSA SEMUA TEXT JADI HITAM */
-body * {
+/* MODE TERANG */
+body.light-mode * {
+  color: #111 !important;
+}
+
+/* MODE GELAP */
+body.dark-mode * {
+  color: #fff !important;
+}
+body.light .about-section,
+body.light .about-section p,
+body.light .about-section h1,
+body.light .about-section h2,
+body.light .about-section h3,
+body.light .about-section span {
+  color: #111 !important;
+}
+body.light .profil-kelas-box,
+body.light .profil-kelas-box * {
+  color: #111 !important;
+}
+/* PROFIL KELAS MODE TERANG */
+.light-mode .profil-kelas-box *,
+.light .profil-kelas-box * {
+  color: #111 !important;
+}
+.light-mode .profil-kelas-box *,
+.light .profil-kelas-box * {
   color: #111 !important;
   opacity: 1 !important;
+  text-shadow: none !important;
+}
+/* TEXT PROFIL KELAS MODE TERANG */
+.light-mode .profil-kelas-box h3,
+.light-mode .profil-kelas-box p,
+.light .profil-kelas-box h3,
+.light .profil-kelas-box p {
+  color: #111111 !important;
+  opacity: 1 !important;
+}
+.profil-kelas-box h3,
+.profil-kelas-box p {
+  color: var(--text-color) !important;
 }
