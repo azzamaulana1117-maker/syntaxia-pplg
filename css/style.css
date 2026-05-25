@@ -2650,3 +2650,23 @@ button:hover {
 #musicPlayer {
   width: 100%;
 }
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.song-btn {
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  background: #1e293b;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.song-btn:hover {
+  background: #ec4899;
+}
