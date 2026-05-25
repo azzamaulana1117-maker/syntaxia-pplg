@@ -378,6 +378,122 @@
   <script src="js/render.js"></script>
   <script src="js/admin.js"></script>
   <script src="js/app.js"></script>
+
+  <script type="module">
+
+// FIREBASE ABSENSI DI SINI
+
+</script>
   
+  <section class="absensi">
+  <h1>Menu Absensi</h1>
+
+  <div id="listSiswa"></div>
+
+  <h2>Riwayat Absensi</h2>
+  <div id="riwayatAbsensi"></div>
+</section>
+
+<script type="module" src="./js/absensi.js"></script>
+<section class="absensi">
+  <h1>Menu Absensi</h1>
+
+  <div id="listSiswa"></div>
+
+  <h2>Riwayat Absensi</h2>
+
+  <div id="riwayatAbsensi"></div>
+</section>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    onSnapshot,
+    serverTimestamp,
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "API_KEY",
+    authDomain: "PROJECT.firebaseapp.com",
+    projectId: "PROJECT_ID",
+    storageBucket: "PROJECT.appspot.com",
+    messagingSenderId: "XXXX",
+    appId: "APP_ID"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  const db = getFirestore(app);
+
+  const siswa = [
+    "Ahmad",
+    "Budi",
+    "Cahyo",
+    "Dimas",
+    "Eko",
+    "Fajar",
+    "Galih",
+    "Hendra",
+    "Indra",
+    "Joko"
+  ];
+
+  const listSiswa = document.getElementById("listSiswa");
+
+  const riwayatAbsensi =
+    document.getElementById("riwayatAbsensi");
+
+  siswa.forEach((nama) => {
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+      <p>${nama}</p>
+
+      <button onclick="kirimAbsensi('${nama}','Hadir')">
+        Hadir
+      </button>
+
+      <button onclick="kirimAbsensi('${nama}','Izin')">
+        Izin
+      </button>
+
+      <button onclick="kirimAbsensi('${nama}','Sakit')">
+        Sakit
+      </button>
+
+      <button onclick="kirimAbsensi('${nama}','Alpa')">
+        Alpa
+      </button>
+    `;
+
+    listSiswa.appendChild(div);
+  });
+
+  window.kirimAbsensi = async (nama, status) => {
+    await addDoc(collection(db, "absensi"), {
+      nama,
+      status,
+      waktu: serverTimestamp(),
+    });
+  };
+
+  onSnapshot(collection(db, "absensi"), (snapshot) => {
+    riwayatAbsensi.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+
+      riwayatAbsensi.innerHTML += `
+        <div>
+          ${data.nama} - ${data.status}
+        </div>
+      `;
+    });
+  });
+</script>
 </body>
 </html>
