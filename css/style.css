@@ -2230,4 +2230,22 @@ body.is-admin .piket-btn:not(:disabled) { cursor: pointer; }
   white-space:nowrap;
   text-align:center;
 }
+/* FIX MODE TERANG */
+.light-mode * {
+  color: #111111 !important;
+}
 
+.light-mode .hero-subtitle,
+.light-mode .hero-description,
+.light-mode .about-text,
+.light-mode .about-section p,
+.light-mode .about-section h1,
+.light-mode .about-section h2,
+.light-mode .about-section h3 {
+  color: #111111 !important;
+}
+/* PAKSA SEMUA TEXT JADI HITAM */
+body * {
+  color: #111 !important;
+  opacity: 1 !important;
+}
