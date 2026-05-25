@@ -148,20 +148,54 @@
           </div>
         </section>
 
-        <!-- Stats -->
-        <div class="stats-grid" id="stats-grid">
-          <article class="stat-card gradient-card-blue">
-            <div class="stat-body">
-              <div>
-                <p class="label-xs">Total Siswa</p>
-                <p class="stat-value text-primary" id="stat-students">27</p>
-                <p class="stat-sub">Kelas X PPLG terdaftar</p>
-              </div>
-              <div class="stat-icon bg-primary">👥</div>
-            </div>
-          </article>
-          
+<!-- Stats -->
+<div class="stats-wrapper">
+
+  <div class="stats-grid" id="stats-grid">
+    <article class="stat-card gradient-card-blue">
+      <div class="stat-body">
+        <div>
+          <p class="label-xs">Total Siswa</p>
+
+          <p class="stat-value text-primary" id="stat-students">
+            27
+          </p>
+
+          <p class="stat-sub">
+            Kelas X PPLG terdaftar
+          </p>
         </div>
+
+        <div class="stat-icon bg-primary">
+          👥
+        </div>
+      </div>
+    </article>
+  </div>
+
+</div>
+
+<!-- MUSIC PLAYER -->
+<div class="music-section">
+
+  <div class="music-card">
+
+    <h3>🎵 Playlist Musik</h3>
+
+    <button type="button" id="playAllBtn">
+      ▶ Putar Playlist
+    </button>
+
+    <p id="nowPlaying">
+      Belum ada lagu diputar
+    </p>
+
+    <audio id="musicPlayer" controls></audio>
+
+  </div>
+
+</div>
+
         </div>
 
         <!-- Jadwal pelajaran -->
@@ -487,5 +521,14 @@
     Powered by Students of X PPLG
   </p>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<div id="particles-js"></div>
+<div id="clock"></div>
+<p id="quote"></p>
+
+<a href="#top" class="top-btn">
+  ↑
+</a>
 </body>
 </html>

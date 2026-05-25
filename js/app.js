@@ -369,3 +369,197 @@ document.addEventListener("mousemove", (e) => {
 
   cursor.style.top = e.clientY + "px";
 });
+tsParticles.load("particles-js", {
+  particles: {
+    number: {
+      value: 80
+    },
+
+    color: {
+      value: "#00ffff"
+    },
+
+    links: {
+      enable: true,
+      color: "#00ffff"
+    },
+
+    move: {
+      enable: true,
+      speed: 2
+    }
+  }
+});
+function updateClock() {
+  const now = new Date();
+
+  const time =
+    now.toLocaleTimeString();
+
+  document.getElementById("clock")
+    .innerHTML = time;
+}
+
+setInterval(updateClock, 1000);
+const quotes = [
+  "Code your future.",
+  "Dream big, build bigger.",
+  "Future programmer loading...",
+  "Syntaxia never stops learning."
+];
+
+const random =
+  quotes[Math.floor(Math.random() * quotes.length)];
+
+document.getElementById("quote")
+  .innerHTML = random;
+  const music =
+  document.getElementById("bgMusic");
+
+const btn =
+  document.getElementById("musicBtn");
+
+btn.onclick = () => {
+  music.play();
+};
+function reveal() {
+  const reveals =
+    document.querySelectorAll(".reveal");
+
+  reveals.forEach((item) => {
+    const top =
+      item.getBoundingClientRect().top;
+
+    if (top < window.innerHeight - 100) {
+      item.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", reveal);
+const songs = [
+  {
+    title: "Laskar Pelangi — Nidji",
+    src: "./music/laskar-pelangi.mp3"
+  },
+
+  {
+    title: "Jendela Kelas 1",
+    src: "./music/jendela-kelas-1.mp3"
+  }
+];
+
+const player =
+  document.getElementById("musicPlayer");
+
+const playBtn =
+  document.getElementById("playAllBtn");
+
+const nowPlaying =
+  document.getElementById("nowPlaying");
+
+let currentSong = 0;
+
+// PLAY SONG
+function playSong(index) {
+
+  player.src = songs[index].src;
+
+  nowPlaying.innerHTML =
+    "🎵 Sedang diputar: " +
+    songs[index].title;
+
+  player.play()
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+// BUTTON PLAY
+playBtn.addEventListener("click", (e) => {
+
+  e.preventDefault();
+
+  currentSong = 0;
+
+  playSong(currentSong);
+});
+
+// AUTO NEXT
+player.addEventListener("ended", () => {
+
+  currentSong++;
+
+  if (currentSong < songs.length) {
+
+    playSong(currentSong);
+
+  } else {
+
+    currentSong = 0;
+
+    nowPlaying.innerHTML =
+      "Playlist selesai";
+  }
+});
+window.addEventListener("DOMContentLoaded", () => {
+
+  const songs = [
+    {
+      title: "Laskar Pelangi — Nidji",
+      src: "music/laskar-pelangi.mp3"
+    },
+
+    {
+      title: "Jendela Kelas 1",
+      src: "music/jendela-kelas-1.mp3"
+    }
+  ];
+
+  const player =
+    document.getElementById("musicPlayer");
+
+  const playBtn =
+    document.getElementById("playAllBtn");
+
+  const nowPlaying =
+    document.getElementById("nowPlaying");
+
+  let currentSong = 0;
+
+  function playSong(index) {
+
+    player.src = songs[index].src;
+
+    nowPlaying.innerHTML =
+      "🎵 Sedang diputar: " +
+      songs[index].title;
+
+    player.play();
+  }
+
+  playBtn.addEventListener("click", () => {
+
+    currentSong = 0;
+
+    playSong(currentSong);
+  });
+
+  player.addEventListener("ended", () => {
+
+    currentSong++;
+
+    if (currentSong < songs.length) {
+
+      playSong(currentSong);
+
+    } else {
+
+      currentSong = 0;
+
+      nowPlaying.innerHTML =
+        "Playlist selesai";
+    }
+  });
+
+});
