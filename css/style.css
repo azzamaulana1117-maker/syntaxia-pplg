@@ -2670,3 +2670,95 @@ button:hover {
 .song-btn:hover {
   background: #ec4899;
 }
+.announcement-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.announcement-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:20px;
+  border-radius:20px;
+}
+
+.announcement-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.announcement-head h3{
+  margin:0;
+  font-size:20px;
+}
+
+.announcement-head span{
+  opacity:.7;
+  font-size:14px;
+}
+
+.announcement-text{
+  line-height:1.7;
+}
+.pengumuman-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  margin-top:30px;
+}
+
+.pengumuman-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+}
+
+.pengumuman-card h3{
+  margin-bottom:10px;
+  color:white;
+}
+
+.pengumuman-card p{
+  color:#cbd5e1;
+  line-height:1.7;
+}
+
+.pengumuman-date{
+  font-size:13px;
+  color:#60a5fa;
+  margin-bottom:10px;
+}
+.pengumuman-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  margin-top:30px;
+}
+
+.pengumuman-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:20px;
+  border-radius:20px;
+}
+
+.pengumuman-date{
+  font-size:13px;
+  color:#60a5fa;
+  margin-bottom:10px;
+}
+
+.hapus-pengumuman-btn{
+  margin-top:15px;
+  border:none;
+  padding:8px 16px;
+  border-radius:999px;
+  background:red;
+  color:white;
+  cursor:pointer;
+}

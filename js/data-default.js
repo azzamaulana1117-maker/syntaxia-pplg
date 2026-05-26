@@ -10,6 +10,19 @@ const STUDENT_PHOTOS = [
 ];
 
 const DEFAULT_DATA = {
+  pengumuman: [
+  {
+    judul: "Libur Sekolah",
+    tanggal: "25 Mei-1 Juni 2026",
+    isi: "Libur hari raya Idul Adha"
+  },
+
+  {
+    judul: "Tugas",
+    tanggal: "26 Mei 2026",
+    isi: "Semua siswa wajib mengumpulkan semua tugas di semester genap."
+  }
+],
   waliKelas: "Bp. Muhammad Assola, S.Pd.",
   totalSiswa: 27,
   totalGaleri: 37,
@@ -249,6 +262,7 @@ const HARI_PIKET = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
 
 const NAV_ITEMS = [
   { label: "Beranda", page: "beranda" },
+  { label: "Pengumuman", page: "pengumuman" },
   { label: "Galeri", page: "gallery" },
   { label: "Siswa", page: "students" },
   { label: "Absensi", page: "absensi" },

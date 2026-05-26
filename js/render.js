@@ -6,15 +6,17 @@ const Render = {
 
   init(data) {
     this.data = data;
+    
     this.hero();
     this.stats();
-    this.jadwal();
+    this.jadwal(); 
     this.galeri();
     this.piket();
     this.absensi();
     this.organisasi();
+    this.pengumuman();
     this.ranking();
-    this.siswa();
+    this.siswa(); 
   },
 
   hero() {
@@ -215,6 +217,72 @@ if(titleArea && !document.getElementById("piket-edit-center")){
       this.piket(btn.dataset.hari);
     };
   },
+
+pengumuman() {
+
+  const list =
+    document.getElementById("pengumuman-list");
+
+  if (!list) return;
+
+  const data =
+    this.data.pengumuman || [];
+
+  if (data.length === 0) {
+
+    list.innerHTML =
+      `<p>Belum ada pengumuman.</p>`;
+
+    return;
+  }
+
+  list.innerHTML = data.map((item, index) => `
+    
+    <div class="pengumuman-card">
+
+      <div class="pengumuman-date">
+        ${item.tanggal}
+      </div>
+
+      <h3>
+        ${item.judul}
+      </h3>
+
+      <p>
+        ${item.isi}
+      </p>
+
+      ${
+        Auth.isAdmin()
+        ?
+        `
+        <div class="pengumuman-actions">
+
+          <button
+            class="edit-pengumuman-btn"
+            data-index="${index}"
+          >
+            Edit
+          </button>
+
+          <button
+            class="hapus-pengumuman-btn"
+            data-index="${index}"
+          >
+            Hapus
+          </button>
+
+        </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+
+  `).join("");
+
+    },
 
   organisasi() {
     const root = document.getElementById("mindmap-organisasi");

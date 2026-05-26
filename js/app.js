@@ -18,7 +18,19 @@
   let galleryBound = false;
   let piketBound = false;
 
-  const PAGE_IDS = ["beranda", "gallery", "students", "absensi", "student-detail", "piket", "jadwal", "ranking", "org", "akun"];
+const PAGE_IDS = [
+  "beranda",
+  "pengumuman",
+  "gallery",
+  "students",
+  "absensi",
+  "student-detail",
+  "piket",
+  "jadwal",
+  "ranking",
+  "org",
+  "akun"
+];
 
   function applyTheme() {
     Store.setTheme(Store.getTheme());
@@ -39,8 +51,10 @@
     currentPage = page;
     if (save) sessionStorage.setItem("syntaxia_page", page);
 
-    document.querySelectorAll(".page-view").forEach((el) => {
-      const active = el.dataset.page === page;
+    document.querySelectorAll("section.page-view, div.page-view").forEach((el) => {
+      const active =
+      el.dataset.page === page;
+      console.log(el.dataset.page, page);
       el.hidden = !active;
       el.classList.toggle("active", active);
     });
@@ -147,7 +161,7 @@
       row.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
-
+  
     // Allow admin to click cells in the rendered attendance table to toggle status
     const absensiGrid = document.getElementById('absensi-grid');
     absensiGrid?.addEventListener('click', (e) => {
@@ -212,6 +226,113 @@
     );
   }
 
+  function bindPengumuman() {
+
+  document.addEventListener("click", (e) => {
+
+    // TAMBAH PENGUMUMAN
+    if (e.target.id === "tambah-pengumuman-btn") {
+
+      const judul =
+        prompt("Judul pengumuman");
+
+      if (!judul) return;
+
+      const isi =
+        prompt("Isi pengumuman");
+
+      if (!isi) return;
+
+      const tanggal =
+        new Date().toLocaleDateString("id-ID");
+
+      const data = Store.getData();
+
+      if (!data.pengumuman) {
+        data.pengumuman = [];
+      }
+
+      data.pengumuman.unshift({
+        judul,
+        isi,
+        tanggal
+      });
+
+      Store.saveData(data);
+
+      Render.data = data;
+
+      Render.pengumuman();
+    }
+
+    // EDIT PENGUMUMAN
+if (
+  e.target.classList.contains(
+    "edit-pengumuman-btn"
+  )
+) {
+
+  const index =
+    Number(e.target.dataset.index);
+
+  const data = Store.getData();
+
+  const item =
+    data.pengumuman[index];
+
+  const judulBaru =
+    prompt(
+      "Edit judul",
+      item.judul
+    );
+
+  if (!judulBaru) return;
+
+  const isiBaru =
+    prompt(
+      "Edit isi",
+      item.isi
+    );
+
+  if (!isiBaru) return;
+
+  data.pengumuman[index] = {
+    ...item,
+    judul: judulBaru,
+    isi: isiBaru
+  };
+
+  Store.saveData(data);
+
+  Render.data = data;
+
+  Render.pengumuman();
+}
+
+    // HAPUS PENGUMUMAN
+    if (
+      e.target.classList.contains(
+        "hapus-pengumuman-btn"
+      )
+    ) {
+
+      const index =
+        Number(e.target.dataset.index);
+
+      const data = Store.getData();
+
+      data.pengumuman.splice(index, 1);
+
+      Store.saveData(data);
+
+      Render.data = data;
+
+      Render.pengumuman();
+    }
+
+  });
+}
+
   function showApp() {
     hideLoading();
     loginScreen.hidden = true;
@@ -232,6 +353,7 @@
     bindGallery();
     bindPiket();
     bindAbsensi();
+    bindPengumuman();
     bindHeaderScroll();
 
     const saved = sessionStorage.getItem("syntaxia_page");
